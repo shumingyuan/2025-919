@@ -93,11 +93,13 @@
         {
             "name": "Target 1",
             "includePath": [
-                "e:\\trsalatec\\zet6\\Start",
-                "e:\\trsalatec\\zet6\\Library",
-                "e:\\trsalatec\\zet6\\User",
-                "e:\\trsalatec\\zet6\\System",
-                "e:\\trsalatec\\zet6\\Hardware"
+                "c:\\Users\\24778\\Desktop\\机器人大赛\\zhanzet6\\2025-919\\Start",
+                "c:\\Users\\24778\\Desktop\\机器人大赛\\zhanzet6\\2025-919\\Library",
+                "c:\\Users\\24778\\Desktop\\机器人大赛\\zhanzet6\\2025-919\\User",
+                "c:\\Users\\24778\\Desktop\\机器人大赛\\zhanzet6\\2025-919\\System",
+                "c:\\Users\\24778\\Desktop\\机器人大赛\\zhanzet6\\2025-919\\Hardware",
+                "C:\\Keil_v5\\ARM\\ARMCC\\include",
+                "C:\\Keil_v5\\ARM\\ARMCC\\include\\rw"
             ],
             "defines": [
                 "STM32F10X_HD",

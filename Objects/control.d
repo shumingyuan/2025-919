@@ -1,8 +1,8 @@
 .\objects\control.o: System\Control.c
 .\objects\control.o: System\Control.h
-.\objects\control.o: D:\51\ARM\ARMCC\Bin\..\include\stdint.h
-.\objects\control.o: D:\51\ARM\ARMCC\Bin\..\include\math.h
-.\objects\control.o: D:\51\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\control.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\control.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+.\objects\control.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\objects\control.o: .\Hardware\Motor.h
 .\objects\control.o: .\Start\stm32f10x.h
 .\objects\control.o: .\Start\core_cm3.h

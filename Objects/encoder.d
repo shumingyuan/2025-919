@@ -2,7 +2,7 @@
 .\objects\encoder.o: Hardware\ENCODER.h
 .\objects\encoder.o: .\Start\stm32f10x.h
 .\objects\encoder.o: .\Start\core_cm3.h
-.\objects\encoder.o: D:\51\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\encoder.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\encoder.o: .\Start\system_stm32f10x.h
 .\objects\encoder.o: .\User\stm32f10x_conf.h
 .\objects\encoder.o: .\Library\stm32f10x_adc.h

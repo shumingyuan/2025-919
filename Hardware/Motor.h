@@ -9,11 +9,11 @@
 #define MOTOR_BIN2_PIN    GPIO_Pin_15                                                                                      
 #define MOTOR_PWMB_PIN    GPIO_Pin_0
 //8  9  左前轮   5  10  右前轮
-#define MOTOR_CIN1_PIN    GPIO_Pin_8    //前轮
-#define MOTOR_CIN2_PIN    GPIO_Pin_9
+#define MOTOR_CIN1_PIN    GPIO_Pin_5    //前轮
+#define MOTOR_CIN2_PIN    GPIO_Pin_6
 #define MOTOR_PWMC_PIN    GPIO_Pin_6
-#define MOTOR_DIN1_PIN    GPIO_Pin_5
-#define MOTOR_DIN2_PIN    GPIO_Pin_10 
+#define MOTOR_DIN1_PIN    GPIO_Pin_11
+#define MOTOR_DIN2_PIN    GPIO_Pin_12 
 #define MOTOR_PWMD_PIN    GPIO_Pin_7
 
 #define MOTOR_GPIO_PORT   GPIOB
