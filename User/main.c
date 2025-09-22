@@ -8,9 +8,10 @@
 #include "ENCODER.h"   	//编码器
 #include "Serial.h"    	//串口
 #include "Control.h"   //控制逻辑
+#include "GY25.h"      //GY-25陀螺仪
+#include "stm32f10x_usart.h" // 显式包含USART头文件
 
-
-int Base_Speed = 200; // 基础速度，可调
+int Base_Speed = 170; // 基础速度，可调
 
 
 int main(void)
@@ -22,12 +23,9 @@ int main(void)
 	Motor_Init();
 	Encoder_Init();
 	Serial_Init();
-	Delay_ms(1000);
-	
-	// 显示初始信息
-	OLED_ShowString(1, 1, "Encoder Test");
-	OLED_ShowString(2, 1, "Basic Directions");
+	GY25_Init();		//GY-25陀螺仪初始化
 	Delay_ms(2000);
+<<<<<<< HEAD
 	OLED_Clear();
 	// 测试向前移动
 	OLED_ShowString(1, 1, "Forward 5cm");
@@ -151,8 +149,21 @@ int main(void)
 	Delay_ms(2000);
 	OLED_Clear();
 	OLED_ShowString(1, 1, "All Tests Done!");
+=======
+	GY25_SendQuery();
+	OLED_ShowString(2, 1, "YAW:");
+	Move_Distance_Mecanum(50, Base_Speed, MOVE_FORWARD);
+	Move_Distance_Mecanum(80, Base_Speed, MOVE_TRANSLATE_LEFT);
+	Move_Distance_Mecanum(25, Base_Speed, MOVE_FORWARD);
+	Move_Distance_Mecanum(90, Base_Speed, MOVE_TRANSLATE_LEFT);
+	Move_Distance_Mecanum(25, Base_Speed, MOVE_BACKWARD);
+	Move_Distance_Mecanum(30, Base_Speed, MOVE_TRANSLATE_LEFT);
+	
+
+>>>>>>> 1252047259c1f62cc626200331d8231bc04d5a2d
 	while (1)
 	{
-		// 主循环可以添加其他测试代码
+		GY25_ProcessData();
 	}
+	
 }
