@@ -9,6 +9,8 @@
 #include "Serial.h"    	//串口
 #include "Control.h"   //控制逻辑
 #include "GY25.h"      //GY-25陀螺仪
+#include "HCSR04.h"    //超声波
+#include "PhotoSensor.h" //光电传感器
 #include "stm32f10x_usart.h" // 显式包含USART头文件
 
 int Base_Speed = 170; // 基础速度，可调
@@ -24,146 +26,47 @@ int main(void)
 	Encoder_Init();
 	Serial_Init();
 	GY25_Init();		//GY-25陀螺仪初始化
-	Delay_ms(2000);
-<<<<<<< HEAD
-	OLED_Clear();
-	// 测试向前移动
-	OLED_ShowString(1, 1, "Forward 5cm");
-	OLED_ShowString(4, 1, "Running...");
-	Clear_All_Encoder_Count();
-	Delay_ms(500);
-	Move_Distance_Mecanum(5.0f, 200, MOVE_FORWARD);
-	OLED_ShowString(4, 1, "Complete!");
-	Delay_ms(1000);
-	OLED_Clear();
-	// 测试向后移动
-	OLED_ShowString(1, 1, "Backward 5cm");
-	OLED_ShowString(4, 1, "Running...");
-	Clear_All_Encoder_Count();
-	Delay_ms(500);
-	Move_Distance_Mecanum(5.0f, 200, MOVE_BACKWARD);
-	OLED_ShowString(4, 1, "Complete!");
-	Delay_ms(1000);
-	OLED_Clear();
-	// 测试向左移动
-	OLED_ShowString(1, 1, "Left 5cm");
-	OLED_ShowString(4, 1, "Running...");
-	Clear_All_Encoder_Count();
-	Delay_ms(500);
-	Move_Distance_Mecanum(5.0f, 200, MOVE_TRANSLATE_LEFT);
-	OLED_ShowString(4, 1, "Complete!");
-	Delay_ms(1000);
-	OLED_Clear();
-	// 测试向右移动
-	OLED_ShowString(1, 1, "Right 5cm");
-	OLED_ShowString(4, 1, "Running...");
-	Clear_All_Encoder_Count();
-	Delay_ms(500);
-	Move_Distance_Mecanum(5.0f, 200, MOVE_TRANSLATE_RIGHT);
-	Delay_ms(1000);
-	OLED_Clear();
-	//测试右前方
-	OLED_ShowString(1, 1, "RightFront 5cm");
-	OLED_ShowString(4, 1, "Running...");	
-	Clear_All_Encoder_Count();
-	Delay_ms(500);
-	Move_Distance_Mecanum(5.0f, 200, MOVE_FORWARD_RIGHT);
-	Delay_ms(1000);
-	OLED_Clear();
-	//测试左前方
-	OLED_ShowString(1, 1, "LeftFront 5cm");
-	OLED_ShowString(4, 1, "Running...");
-	Clear_All_Encoder_Count();
-	Delay_ms(500);
-	Move_Distance_Mecanum(5.0f, 200, MOVE_FORWARD_LEFT);
-	Delay_ms(1000);
-	OLED_Clear();
-	//测试右后方	
-	OLED_ShowString(1, 1, "RightBack 5cm");
-	OLED_ShowString(4, 1, "Running...");
-	Clear_All_Encoder_Count();
-	Delay_ms(500);
-	Move_Distance_Mecanum(5.0f, 200, MOVE_BACKWARD_RIGHT);
-	Delay_ms(1000);
-	OLED_Clear();
-	//测试左后方
-	OLED_ShowString(1, 1, "LeftBack 5cm");
-	OLED_ShowString(4, 1, "Running...");
-	Clear_All_Encoder_Count();
-	Delay_ms(500);
-	Move_Distance_Mecanum(5.0f, 200, MOVE_BACKWARD_LEFT);
-	Delay_ms(1000);
-	OLED_Clear();
-	// 显示测试完成
-	OLED_ShowString(1, 1, "Basic Tests");
-	OLED_ShowString(2, 1, "Complete!");
-	OLED_ShowString(3, 1, "");
-	OLED_ShowString(4, 1, "");
-    // //单个电机测试
-	// Delay_ms(2000);
-	// OLED_Clear();
-	// OLED_ShowString(1, 1, "Single Motor Test");				
-	// Delay_ms(1000);
-	// OLED_ShowString(2, 1, "Motor A+ 2s");
-	// MotorA_SetSpeed(Base_Speed);	
-	// Delay_ms(2000);
-	// Motor_Stop();
-	// OLED_ShowString(3, 1, "Motor A- 2s");
-	// MotorA_SetSpeed(-Base_Speed);
-	// Delay_ms(2000);
-	// Motor_Stop();		
-	// OLED_ShowString(2, 1, "Motor B+ 2s");
-	// MotorB_SetSpeed(Base_Speed);		
-	// Delay_ms(2000);
-	// Motor_Stop();
-	// OLED_ShowString(3, 1, "Motor B- 2s");
-	// MotorB_SetSpeed(-Base_Speed);
-	// Delay_ms(2000);
-	// Motor_Stop();
-	// OLED_ShowString(2, 1, "Motor C+ 2s");
-    // MotorC_SetSpeed(Base_Speed);
-    // // MotorD_SetSpeed(Base_Speed);
-	// Delay_ms(2000);
-	// Motor_Stop();
-	// OLED_ShowString(3, 1, "Motor C- 2s");
-	// MotorC_SetSpeed(-Base_Speed);
-    // // MotorD_SetSpeed(-Base_Speed);
-	// Delay_ms(2000);
-	// Motor_Stop();
-	// OLED_ShowString(2, 1, "Motor D+ 2s");
-	// MotorD_SetSpeed(Base_Speed);	
-	// Delay_ms(2000);
-	// Motor_Stop();
-	// OLED_ShowString(3, 1, "Motor D- 2s");
-	// MotorD_SetSpeed(-Base_Speed);
-	// Delay_ms(2000);
-	// Motor_Stop();
-	// OLED_ShowString(2, 1, "Single Test Done!");
-	//测试旋转90度
-	Delay_ms(2000);
-	Rotate_Angle(90.0f, 200); // 顺时针旋转90度
-	Delay_ms(1000);
-	Rotate_Angle(-90.0f, 200); // 逆时针旋转90度
-	Delay_ms(1000);
-	OLED_ShowString(2, 1, "Rotation Test Done!");
-	Delay_ms(2000);
-	OLED_Clear();
-	OLED_ShowString(1, 1, "All Tests Done!");
-=======
-	GY25_SendQuery();
-	OLED_ShowString(2, 1, "YAW:");
-	Move_Distance_Mecanum(50, Base_Speed, MOVE_FORWARD);
-	Move_Distance_Mecanum(80, Base_Speed, MOVE_TRANSLATE_LEFT);
-	Move_Distance_Mecanum(25, Base_Speed, MOVE_FORWARD);
-	Move_Distance_Mecanum(90, Base_Speed, MOVE_TRANSLATE_LEFT);
-	Move_Distance_Mecanum(25, Base_Speed, MOVE_BACKWARD);
-	Move_Distance_Mecanum(30, Base_Speed, MOVE_TRANSLATE_LEFT);
 	
-
->>>>>>> 1252047259c1f62cc626200331d8231bc04d5a2d
-	while (1)
-	{
-		GY25_ProcessData();
-	}
+    GY25_SendQuery();
+    OLED_ShowString(2, 1, "YAW:");
+    
+    // 初始化新增的传感器
+    HC_SR04_Init();
+    PhotoSensor_Init();
+    Delay_ms(3000);
+    while (1)
+    {
+        // 处理陀螺仪数据
+        GY25_ProcessData();
+        
+        // 读取并显示超声波距离
+        int16_t distance = sonar_mm();
+        OLED_ShowString(1, 1, "Dist:");
+        OLED_ShowNum(1, 6, distance, 4);
+        OLED_ShowString(1, 10, "mm");
+        
+        // 读取并显示光电传感器状态
+        uint8_t photo1 = PhotoSensor1_Read();
+        uint8_t photo2 = PhotoSensor2_Read();
+        
+        OLED_ShowString(3, 1, "P1:");
+        OLED_ShowNum(3, 4, !photo1, 1);  // 取反是因为低电平有效
+        OLED_ShowString(4, 1, "P2:");
+        OLED_ShowNum(4, 4, !photo2, 1);
+        
+        // // 如果任一光电传感器检测到障碍物，蜂鸣器响
+        // if (!photo1 || !photo2)
+        // {
+        //     Buzzer_ON();
+        //     LED_ON();
+        // }
+        // else
+        // {
+        //     Buzzer_OFF();
+        //     LED_OFF();
+        // }
+        
+        Delay_ms(100);  // 刷新间隔
+    }
 	
 }

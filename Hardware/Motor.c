@@ -25,22 +25,6 @@ void Motor_Init(void)
     
     // Motor A & B & C & D 方向引脚 (都在GPIOB)
     GPIO_InitStructure.GPIO_Pin = MOTOR_AIN1_PIN | MOTOR_AIN2_PIN | 
-<<<<<<< HEAD
-                                 MOTOR_BIN1_PIN | MOTOR_BIN2_PIN ;
-    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
-    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-    GPIO_Init(GPIOB, &GPIO_InitStructure);
-    GPIO_InitStructure.GPIO_Pin = MOTOR_CIN1_PIN | MOTOR_CIN2_PIN |
-                                 MOTOR_DIN1_PIN | MOTOR_DIN2_PIN;
-    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
-    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-    GPIO_Init(GPIOA, &GPIO_InitStructure);
-    /* 3. 配置PWM输出GPIO - PB0, PB1, PB6, PB7 */
-    GPIO_InitStructure.GPIO_Pin = MOTOR_PWMA_PIN | MOTOR_PWMB_PIN |
-                                 MOTOR_PWMC_PIN | MOTOR_PWMD_PIN;
-    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;          // 复用推挽输出
-    GPIO_Init(GPIOB, &GPIO_InitStructure);
-=======
                                  MOTOR_BIN1_PIN | MOTOR_BIN2_PIN |
                                  MOTOR_CIN1_PIN | MOTOR_CIN2_PIN |
                                  MOTOR_DIN1_PIN | MOTOR_DIN2_PIN;
@@ -52,7 +36,6 @@ void Motor_Init(void)
     // Motor A & B PWM引脚 (GPIOB)
     GPIO_InitStructure.GPIO_Pin = MOTOR_PWMA_PIN | MOTOR_PWMB_PIN;
     GPIO_Init(MOTOR_A_PORT_PWM, &GPIO_InitStructure);
->>>>>>> 1252047259c1f62cc626200331d8231bc04d5a2d
     
     // Motor C & D PWM引脚 (GPIOA)
     GPIO_InitStructure.GPIO_Pin = MOTOR_PWMC_PIN | MOTOR_PWMD_PIN;
@@ -156,20 +139,6 @@ void MotorC_SetSpeed(int16_t speed)         //左前轮
     // 设置方向
     if(speed > 0) {
         // 正转：CIN1=1, CIN2=0
-<<<<<<< HEAD
-        GPIO_SetBits(GPIOA, MOTOR_CIN1_PIN);
-        GPIO_ResetBits(GPIOA, MOTOR_CIN2_PIN);
-    } 
-    else if(speed < 0) {
-        // 反转：CIN1=0, CIN2=1
-        GPIO_ResetBits(GPIOA, MOTOR_CIN1_PIN);
-        GPIO_SetBits(GPIOA, MOTOR_CIN2_PIN);
-    }
-    else {
-        // 刹车：CIN1=1, CIN2=1
-        GPIO_SetBits(GPIOA, MOTOR_CIN1_PIN);
-        GPIO_SetBits(GPIOA, MOTOR_CIN2_PIN);
-=======
         GPIO_SetBits(MOTOR_C_PORT_DIR, MOTOR_CIN1_PIN);
         GPIO_ResetBits(MOTOR_C_PORT_DIR, MOTOR_CIN2_PIN);
     } 
@@ -182,7 +151,6 @@ void MotorC_SetSpeed(int16_t speed)         //左前轮
         // 刹车：CIN1=1, CIN2=1
         GPIO_SetBits(MOTOR_C_PORT_DIR, MOTOR_CIN1_PIN);
         GPIO_SetBits(MOTOR_C_PORT_DIR, MOTOR_CIN2_PIN);
->>>>>>> 1252047259c1f62cc626200331d8231bc04d5a2d
     }
     
     // 设置PWM占空比
@@ -197,20 +165,6 @@ void MotorD_SetSpeed(int16_t speed)          //右前轮
     // 设置方向
     if(speed > 0) {
         // 正转：DIN1=1, DIN2=0
-<<<<<<< HEAD
-        GPIO_SetBits(GPIOA, MOTOR_DIN1_PIN);
-        GPIO_ResetBits(GPIOA, MOTOR_DIN2_PIN);
-    } 
-    else if(speed < 0) {
-        // 反转：DIN1=0, DIN2=1
-        GPIO_ResetBits(GPIOA, MOTOR_DIN1_PIN);
-        GPIO_SetBits(GPIOA, MOTOR_DIN2_PIN);
-    }
-    else {
-        // 刹车：DIN1=1, DIN2=1
-        GPIO_SetBits(GPIOA, MOTOR_DIN1_PIN);
-        GPIO_SetBits(GPIOA, MOTOR_DIN2_PIN);
-=======
         GPIO_SetBits(MOTOR_D_PORT_DIR, MOTOR_DIN1_PIN);
         GPIO_ResetBits(MOTOR_D_PORT_DIR, MOTOR_DIN2_PIN);
     } 
@@ -223,7 +177,6 @@ void MotorD_SetSpeed(int16_t speed)          //右前轮
         // 刹车：DIN1=1, DIN2=1
         GPIO_SetBits(MOTOR_D_PORT_DIR, MOTOR_DIN1_PIN);
         GPIO_SetBits(MOTOR_D_PORT_DIR, MOTOR_DIN2_PIN);
->>>>>>> 1252047259c1f62cc626200331d8231bc04d5a2d
     }
     
     // 设置PWM占空比

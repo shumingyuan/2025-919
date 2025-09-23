@@ -39,3 +39,5 @@
 .\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\main.o: .\System\Control.h
 .\objects\main.o: .\Hardware\GY25.h
+.\objects\main.o: .\Hardware\HCSR04.h
+.\objects\main.o: .\Hardware\PhotoSensor.h

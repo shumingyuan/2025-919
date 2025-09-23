@@ -100,11 +100,11 @@ void GY25_DisplayOnOLED(void)
     yaw_int = GY25_Data.YAW / 100;
     yaw_dec = (GY25_Data.YAW % 100) / 10;
     
-    pitch_int = GY25_Data.PITCH / 100;
-    pitch_dec = (GY25_Data.PITCH % 100) / 10;
+    // pitch_int = GY25_Data.PITCH / 100;
+    // pitch_dec = (GY25_Data.PITCH % 100) / 10;
     
-    roll_int = GY25_Data.ROLL / 100;
-    roll_dec = (GY25_Data.ROLL % 100) / 10;
+    // roll_int = GY25_Data.ROLL / 100;
+    // roll_dec = (GY25_Data.ROLL % 100) / 10;
     
     // 显示YAW角度
     if (yaw_int >= 0)
@@ -120,33 +120,33 @@ void GY25_DisplayOnOLED(void)
     OLED_ShowChar(2, 9, '.');
     OLED_ShowNum(2, 10, yaw_dec, 1);
     
-    // 显示PITCH角度
-    if (pitch_int >= 0)
-    {
-        OLED_ShowChar(3, 7, '+');
-        OLED_ShowNum(3, 8, pitch_int, 3);
-    }
-    else
-    {
-        OLED_ShowChar(3, 7, '-');
-        OLED_ShowNum(3, 8, -pitch_int, 3);
-    }
-    OLED_ShowChar(3, 11, '.');
-    OLED_ShowNum(3, 12, pitch_dec, 1);
+    // // 显示PITCH角度
+    // if (pitch_int >= 0)
+    // {
+    //     OLED_ShowChar(3, 7, '+');
+    //     OLED_ShowNum(3, 8, pitch_int, 3);
+    // }
+    // else
+    // {
+    //     OLED_ShowChar(3, 7, '-');
+    //     OLED_ShowNum(3, 8, -pitch_int, 3);
+    // }
+    // OLED_ShowChar(3, 11, '.');
+    // OLED_ShowNum(3, 12, pitch_dec, 1);
     
-    // 显示ROLL角度
-    if (roll_int >= 0)
-    {
-        OLED_ShowChar(4, 6, '+');
-        OLED_ShowNum(4, 7, roll_int, 3);
-    }
-    else
-    {
-        OLED_ShowChar(4, 6, '-');
-        OLED_ShowNum(4, 7, -roll_int, 3);
-    }
-    OLED_ShowChar(4, 10, '.');
-    OLED_ShowNum(4, 11, roll_dec, 1);
+    // // 显示ROLL角度
+    // if (roll_int >= 0)
+    // {
+    //     OLED_ShowChar(4, 6, '+');
+    //     OLED_ShowNum(4, 7, roll_int, 3);
+    // }
+    // else
+    // {
+    //     OLED_ShowChar(4, 6, '-');
+    //     OLED_ShowNum(4, 7, -roll_int, 3);
+    // }
+    // OLED_ShowChar(4, 10, '.');
+    // OLED_ShowNum(4, 11, roll_dec, 1);
 }
 
 /**
